@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开心影屋 - 留下您最开心的一刻</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Google Fonts - Noto Sans SC for body, 华文彩云 for logo -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- 引入外部CSS文件 -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- 自定义配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2E7D32', // 深绿色 - 主色调
+                        secondary: '#66BB6A', // 中绿色 - 辅助色
+                        accent: '#A5D6A7', // 浅绿色 - 强调色
+                        dark: '#1B5E20', // 暗绿色 - 文字
+                        light: '#E8F5E9', // 极浅绿色 - 背景
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans SC', 'sans-serif'],
+                        logo: ['"华文彩云"', 'cursive', 'sans-serif'],
+                    },
+                },
+            }
+        }
+    </script>
+</head>
+
+<body class="font-sans text-gray-800 bg-light">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-primary/90 text-white">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#hero" class="flex items-center space-x-2">
+                <span class="font-logo text-[clamp(1.8rem,5vw,2.5rem)] text-shadow">开心影屋</span>
+            </a>
+
+            <!-- 桌面导航 -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="nav-link hover:text-accent transition-colors">关于我们</a>
+                <a href="#services" class="nav-link hover:text-accent transition-colors">服务项目</a>
+                <a href="#gallery" class="nav-link hover:text-accent transition-colors">作品展示</a>
+                <a href="#pricing" class="nav-link hover:text-accent transition-colors">价格套餐</a>
+                <a href="#testimonials" class="nav-link hover:text-accent transition-colors">客户评价</a>
+                <a href="#contact" class="nav-link hover:text-accent transition-colors">联系我们</a>
+                <a href="#booking"
+                    class="btn bg-secondary hover:bg-accent text-white px-5 py-2 rounded-full transition-all">
+                    立即预约
+                </a>
+            </nav>
+
+            <!-- 移动端菜单按钮 -->
+            <button id="menu-toggle" class="md:hidden text-white text-2xl focus:outline-none">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="md:hidden bg-primary/95 hidden">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+                <a href="#about" class="py-2 hover:text-accent transition-colors">关于我们</a>
+                <a href="#services" class="py-2 hover:text-accent transition-colors">服务项目</a>
+                <a href="#gallery" class="py-2 hover:text-accent transition-colors">作品展示</a>
+                <a href="#pricing" class="py-2 hover:text-accent transition-colors">价格套餐</a>
+                <a href="#testimonials" class="py-2 hover:text-accent transition-colors">客户评价</a>
+                <a href="#contact" class="py-2 hover:text-accent transition-colors">联系我们</a>
+                <a href="#booking"
+                    class="btn bg-secondary hover:bg-accent text-white px-5 py-2 rounded-full text-center transition-all">
+                    立即预约
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="carousel relative h-full">
+                <div class="carousel-item absolute inset-0 bg-cover bg-center opacity-90"
+                    style="background-image: url('https://picsum.photos/id/250/1920/1080');"></div>
+                <div class="carousel-item absolute inset-0 bg-cover bg-center opacity-0"
+                    style="background-image: url('https://picsum.photos/id/251/1920/1080');"></div>
+                <div class="carousel-item absolute inset-0 bg-cover bg-center opacity-0"
+                    style="background-image: url('https://picsum.photos/id/252/1920/1080');"></div>
+                <div class="absolute inset-0 bg-primary/40 backdrop-blur-sm"></div>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="font-logo text-[clamp(3rem,8vw,5rem)] text-white text-shadow mb-6 fade-in"
+                style="animation-delay: 0.2s;">
+                开心影屋
+            </h1>
+            <p class="text-[clamp(1.2rem,3vw,1.8rem)] text-white text-shadow max-w-3xl mx-auto mb-10 fade-in"
+                style="animation-delay: 0.5s;">
+                捕捉您生命中的每一个精彩瞬间，用镜头讲述您的故事
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 fade-in" style="animation-delay: 0.8s;">
+                <a href="#booking"
+                    class="btn bg-secondary hover:bg-accent text-white px-8 py-3 rounded-full text-lg font-medium transition-all hover-lift">
+                    立即预约拍摄
+                </a>
+                <a href="#gallery"
+                    class="btn bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white border border-white/40 px-8 py-3 rounded-full text-lg font-medium transition-all hover-lift">
+                    查看作品展示
+                </a>
+            </div>
+
+            <!-- 滚动指示器 -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <a href="#about" class="text-white text-3xl opacity-80 hover:opacity-100 transition-opacity">
+                    <i class="fa fa-angle-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(2rem,5vw,3rem)] font-bold text-primary mb-4">关于开心影屋</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto mb-8"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">我们是一家充满活力和创意的专业摄影工作室，致力于为您提供高质量的摄影服务和难忘的拍摄体验。</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <div class="absolute -top-6 -left-6 w-64 h-64 bg-accent/20 rounded-lg -z-10"></div>
+                    <img src="https://picsum.photos/id/1048/800/600" alt="开心影屋团队" class="rounded-lg shadow-xl scale-up">
+                    <div class="absolute -bottom-6 -right-6 bg-primary text-white p-6 rounded-lg shadow-lg max-w-xs">
+                        <p class="text-lg font-medium">10+ 年专业摄影经验</p>
+                        <p class="text-sm opacity-90">用心记录每一个珍贵瞬间</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">我们的故事</h3>
+                    <p class="text-gray-600 mb-6">开心影屋成立于2010年，由一群热爱摄影的专业人士创立。我们相信，摄影不仅仅是捕捉图像，更是记录情感、讲述故事的艺术。</p>
+
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-primary/10 p-3 rounded-full text-primary mt-1">
+                                <i class="fa fa-camera text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">专业设备</h4>
+                                <p class="text-gray-600">使用行业领先的摄影设备，确保每一张照片都具有卓越的品质。</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-primary/10 p-3 rounded-full text-primary mt-1">
+                                <i class="fa fa-paint-brush text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">创意团队</h4>
+                                <p class="text-gray-600">我们的摄影师和设计师团队充满创意，不断探索新的拍摄风格和技巧。</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-primary/10 p-3 rounded-full text-primary mt-1">
+                                <i class="fa fa-heart text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">用心服务</h4>
+                                <p class="text-gray-600">我们倾听您的需求，为您量身定制最适合的拍摄方案。</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-primary/10 p-3 rounded-full text-primary mt-1">
+                                <i class="fa fa-image text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">精美成品</h4>
+                                <p class="text-gray-600">从照片精修到相册制作，我们提供一站式的高品质摄影服务。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contact"
+                        class="inline-block bg-primary hover:bg-dark text-white px-6 py-3 rounded-full transition-all hover-lift">
+                        联系我们了解更多 <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务项目 -->
+    <section id="services" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(2rem,5vw,3rem)] font-bold text-primary mb-4">我们的服务</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto mb-8"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">我们提供多种专业摄影服务，满足您在不同场合的需求，用镜头定格您的美好回忆。</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 服务卡片 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-lift">
+                    <div class="h-56 overflow-hidden img-hover-zoom">
+                        <img src="https://picsum.photos/id/237/800/600" alt="婚纱摄影" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa fa-heart text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">婚纱摄影</h3>
+                        <p class="text-gray-600 mb-6">为您的爱情故事打造浪漫而唯美的婚纱照，记录您步入婚姻殿堂的珍贵时刻。</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                <span>室内外主题拍摄</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                <span>多套服装造型</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                <span>精修照片</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                <span>高端相册制作</span>
+                            </li>
+                        </ul>
+                        <a href="#booking" class="text-primary font-medium hover:text-dark transition-colors">
+                            了解详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 服务卡片 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-lift">
+                    <div class="h-56 overflow-hidden img-hover-zoom">
+                        <img src="https://picsum.photos/id/177/800/600" alt="儿童摄影" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa fa-child text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">儿童摄影</h3>
+                        <p class="text-gray-600 mb-6">捕捉孩子成长的每一个可爱瞬间，用照片记录他们天真烂漫的童年时光。</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                <span>创意主题拍摄</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                <span>专业引导师</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                <span>无闪拍摄技术</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                <span>成长相册套餐</span>
+                            </li>
+                        </ul>
+                        <a href="#booking" class="text-primary font-medium hover:text-dark transition-colors">
+                            了解详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 服务卡片 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-lift">
+                    <div class="h-56 overflow-hidden img-hover-zoom">
+                        <img src="https://picsum.photos/id/1005/800/600" alt="家庭摄影" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa fa-users text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">家庭摄影</h3>
+                        <p class="text-gray-600 mb-6">记录家庭的温馨时光，为您和家人打造永恒的回忆，展现家庭的爱与欢乐。</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                <span>室内外场景选择</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                <span>多风格拍摄</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                <span>全家福套餐</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                <span>精美相框制作</span>
+                            </li>
+                        </ul>
+                        <a href="#booking" class="text-primary font-medium hover:text-dark transition-colors">
+                            了解详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 服务卡片 4 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-lift">
+                    <div class="h-56 overflow-hidden img-hover-zoom">
+                        <img src="https://picsum.photos/id/1074/800/600" alt="个人写真" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa fa-user text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">个人写真</h3>
+                        <p class="text-gray-600 mb-6">展现您的个性与魅力，专业团队为您打造时尚、自然或艺术风格的个人写真。</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                <span>专业形象设计</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                <span>多套服装搭配</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                <span>内外景结合拍摄</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                <span>时尚相册制作</span>
+                            </li>
+                        </ul>
+                        <a href="#booking" class="text-primary font-medium hover:text-dark transition-colors">
+                            了解详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 服务卡片 5 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-lift">
+                    <div class="h-56 overflow-hidden img-hover-zoom">
+                        <img src="https://picsum.photos/id/425/800/600" alt="商业摄影" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa fa-briefcase text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">商业摄影</h3>
+                        <p class="text-gray-600 mb-6">为企业和商家提供专业的产品摄影、商业人像和活动摄影服务，提升品牌形象。</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                <span>产品静物拍摄</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                <span>企业形象摄影</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                <span>活动纪实拍摄</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                <span>商业视频制作</span>
+                            </li>
+                        </ul>
+                        <a href="#booking" class="text-primary font-medium hover:text-dark transition-colors">
+                            了解详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 服务卡片 6 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover-lift">
+                    <div class="h-56 overflow-hidden img-hover-zoom">
+                        <img src="https://picsum.photos/id/26/800/600" alt="活动摄影" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa fa-calendar text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">活动摄影</h3>
+                        <p class="text-gray-600 mb-6">专业记录各类活动的精彩瞬间，包括婚礼、生日派对、企业年会、发布会等。</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                <span>全程跟拍服务</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                <span>高清照片直播</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                <span>精美相册制作</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-2"></i>
+                                <span>视频集锦制作</span>
+                            </li>
+                        </ul>
+                        <a href="#booking" class="text-primary font-medium hover:text-dark transition-colors">
+                            了解详情 <i class="fa fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 作品展示 -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(2rem,5vw,3rem)] font-bold text-primary mb-4">作品展示</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto mb-8"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">浏览我们的精选作品，每一张照片都代表着我们对摄影艺术的热爱和追求。</p>
+            </div>
+
+            <!-- 作品分类 -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="gallery-filter active bg-primary text-white px-6 py-2 rounded-full transition-all"
+                    data-filter="all">
+                    全部作品
+                </button>
+                <button
+                    class="gallery-filter bg-gray-200 hover:bg-primary hover:text-white px-6 py-2 rounded-full transition-all"
+                    data-filter="wedding">
+                    婚纱摄影
+                </button>
+                <button
+                    class="gallery-filter bg-gray-200 hover:bg-primary hover:text-white px-6 py-2 rounded-full transition-all"
+                    data-filter="children">
+                    儿童摄影
+                </button>
+                <button
+                    class="gallery-filter bg-gray-200 hover:bg-primary hover:text-white px-6 py-2 rounded-full transition-all"
+                    data-filter="family">
+                    家庭摄影
+                </button>
+                <button
+                    class="gallery-filter bg-gray-200 hover:bg-primary hover:text-white px-6 py-2 rounded-full transition-all"
+                    data-filter="portrait">
+                    个人写真
+                </button>
+            </div>
+
+            <!-- 作品网格 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 作品项 1 -->
+                <div class="gallery-item" data-category="wedding">
+                    <div class="relative overflow-hidden rounded-xl shadow-lg group hover-lift">
+                        <img src="https://picsum.photos/id/169/800/1000" alt="婚纱摄影作品"
+                            class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-primary/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-center p-6">
+                                <h3 class="text-white text-xl font-bold mb-2">浪漫婚纱系列</h3>
+                                <p class="text-white/90 mb-4">永恒的爱情记忆</p>
+                                <button
+                                    class="view-photo bg-white text-primary px-4 py-2 rounded-full hover:bg-accent hover:text-white transition-colors">
+                                    查看大图
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 作品项 2 -->
+                <div class="gallery-item" data-category="children">
+                    <div class="relative overflow-hidden rounded-xl shadow-lg group hover-lift">
+                        <img src="https://picsum.photos/id/96/800/1000" alt="儿童摄影作品"
+                            class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-primary/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-center p-6">
+                                <h3 class="text-white text-xl font-bold mb-2">童趣时光</h3>
+                                <p class="text-white/90 mb-4">记录成长的喜悦</p>
+                                <button
+                                    class="view-photo bg-white text-primary px-4 py-2 rounded-full hover:bg-accent hover:text-white transition-colors">
+                                    查看大图
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 作品项 3 -->
+                <div class="gallery-item" data-category="family">
+                    <div class="relative overflow-hidden rounded-xl shadow-lg group hover-lift">
+                        <img src="https://picsum.photos/id/20/800/1000" alt="家庭摄影作品"
+                            class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-primary/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-center p-6">
+                                <h3 class="text-white text-xl font-bold mb-2">温馨家庭</h3>
+                                <p class="text-white/90 mb-4">家的温暖与幸福</p>
+                                <button
+                                    class="view-photo bg-white text-primary px-4 py-2 rounded-full hover:bg-accent hover:text-white transition-colors">
+                                    查看大图
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 作品项 4 -->
+                <div class="gallery-item" data-category="portrait">
+                    <div class="relative overflow-hidden rounded-xl shadow-lg group hover-lift">
+                        <img src="https://picsum.photos/id/64/800/1000" alt="个人写真作品"
+                            class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-primary/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-center p-6">
+                                <h3 class="text-white text-xl font-bold mb-2">时尚写真</h3>
+                                <p class="text-white/90 mb-4">展现独特个性</p>
+                                <button
+                                    class="view-photo bg-white text-primary px-4 py-2 rounded-full hover:bg-accent hover:text-white transition-colors">
+                                    查看大图
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 作品项 5 -->
+                <div class="gallery-item" data-category="wedding">
+                    <div class="relative overflow-hidden rounded-xl shadow-lg group hover-lift">
+                        <img src="https://picsum.photos/id/177/800/1000" alt="婚纱摄影作品"
+                            class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-primary/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-center p-6">
+                                <h3 class="text-white text-xl font-bold mb-2">幸福时刻</h3>
+                                <p class="text-white/90 mb-4">婚礼的浪漫瞬间</p>
+                                <button
+                                    class="view-photo bg-white text-primary px-4 py-2 rounded-full hover:bg-accent hover:text-white transition-colors">
+                                    查看大图
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 作品项 6 -->
+                <div class="gallery-item" data-category="children">
+                    <div class="relative overflow-hidden rounded-xl shadow-lg group hover-lift">
+                        <img src="https://picsum.photos/id/124/800/1000" alt="儿童摄影作品"
+                            class="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-primary/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="text-center p-6">
+                                <h3 class="text-white text-xl font-bold mb-2">童真年代</h3>
+                                <p class="text-white/90 mb-4">无忧无虑的童年</p>
+                                <button
+                                    class="view-photo bg-white text-primary px-4 py-2 rounded-full hover:bg-accent hover:text-white transition-colors">
+                                    查看大图
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 查看更多按钮 -->
+            <div class="text-center mt-12">
+                <a href="#contact"
+                    class="inline-block bg-primary hover:bg-dark text-white px-8 py-3 rounded-full transition-all hover-lift">
+                    联系我们获取更多作品 <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 价格套餐 -->
+    <section id="pricing" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(2rem,5vw,3rem)] font-bold text-primary mb-4">价格套餐</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto mb-8"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">我们提供多种价格套餐，满足不同客户的需求，所有套餐均包含专业拍摄和精美成品。</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- 套餐卡片 1 -->
+                <div
+                    class="bg-white rounded-xl shadow-lg overflow-hidden hover-lift transform transition-all duration-300">
+                    <div class="p-8 text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">温馨套餐</h3>
+                        <div class="text-primary font-bold text-4xl mb-6">
+                            ¥1,299<span class="text-gray-500 text-lg font-normal">/套</span>
+                        </div>
+                        <ul class="space-y-4 mb-8 text-left">
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-3"></i>
+                                <span>2小时专业拍摄</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-3"></i>
+                                <span>1套服装造型</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-3"></i>
+                                <span>30张精修照片</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-3"></i>
+                                <span>5寸精美相册一本</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-3"></i>
+                                <span>全部原始照片</span>
+                            </li>
+                            <li class="flex items-center text-gray-400">
+                                <i class="fa fa-times mr-3"></i>
+                                <span>外景拍摄</span>
+                            </li>
+                            <li class="flex items-center text-gray-400">
+                                <i class="fa fa-times mr-3"></i>
+                                <span>视频花絮</span>
+                            </li>
+                        </ul>
+                        <a href="#booking"
+                            class="block w-full bg-primary hover:bg-dark text-white py-3 rounded-full transition-all">
+                            选择此套餐
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 套餐卡片 2 -->
+                <div
+                    class="bg-white rounded-xl shadow-xl overflow-hidden hover-lift transform transition-all duration-300 scale-105 z-10 border-2 border-primary">
+                    <div class="bg-primary text-white text-center py-3">
+                        <span
+                            class="inline-block bg-white text-primary text-sm font-bold px-3 py-1 rounded-full transform -translate-y-1">最受欢迎</span>
+                    </div>
+                    <div class="p-8 text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">经典套餐</h3>
+                        <div class="text-primary font-bold text-4xl mb-6">
+                            ¥2,699<span class="text-gray-500 text-lg font-normal">/套</span>
+                        </div>
+                        <ul class="space-y-4 mb-8 text-left">
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-3"></i>
+                                <span>4小时专业拍摄</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-3"></i>
+                                <span>2套服装造型</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-3"></i>
+                                <span>60张精修照片</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-3"></i>
+                                <span>8寸豪华相册一本</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-3"></i>
+                                <span>全部原始照片</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-3"></i>
+                                <span>1处外景拍摄</span>
+                            </li>
+                            <li class="flex items-center text-gray-400">
+                                <i class="fa fa-times mr-3"></i>
+                                <span>视频花絮</span>
+                            </li>
+                        </ul>
+                        <a href="#booking"
+                            class="block w-full bg-primary hover:bg-dark text-white py-3 rounded-full transition-all">
+                            选择此套餐
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 套餐卡片 3 -->
+                <div
+                    class="bg-white rounded-xl shadow-lg overflow-hidden hover-lift transform transition-all duration-300">
+                    <div class="p-8 text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">豪华套餐</h3>
+                        <div class="text-primary font-bold text-4xl mb-6">
+                            ¥4,999<span class="text-gray-500 text-lg font-normal">/套</span>
+                        </div>
+                        <ul class="space-y-4 mb-8 text-left">
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-3"></i>
+                                <span>8小时专业拍摄</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-3"></i>
+                                <span>4套服装造型</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-3"></i>
+                                <span>100张精修照片</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-3"></i>
+                                <span>10寸豪华相册一本</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-3"></i>
+                                <span>全部原始照片</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-3"></i>
+                                <span>2处外景拍摄</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-check text-secondary mr-3"></i>
+                                <span>3-5分钟视频花絮</span>
+                            </li>
+                        </ul>
+                        <a href="#booking"
+                            class="block w-full bg-primary hover:bg-dark text-white py-3 rounded-full transition-all">
+                            选择此套餐
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 自定义套餐 -->
+            <div class="mt-16 bg-white rounded-xl shadow-lg p-8 max-w-3xl mx-auto">
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="mb-6 md:mb-0 md:mr-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">需要自定义套餐？</h3>
+                        <p class="text-gray-600">我们可以根据您的特殊需求，为您量身定制专属摄影方案。</p>
+                    </div>
+                    <a href="#contact"
+                        class="inline-block bg-primary hover:bg-dark text-white px-8 py-3 rounded-full transition-all hover-lift">
+                        联系我们定制 <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客户评价 -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(2rem,5vw,3rem)] font-bold text-primary mb-4">客户评价</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto mb-8"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">听听我们的客户怎么说，他们的满意是我们最大的动力。</p>
+            </div>
+
+            <div class="testimonial-slider relative overflow-hidden">
+                <div class="testimonials-container flex transition-transform duration-500">
+                    <!-- 评价 1 -->
+                    <div class="testimonial-item min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-4">
+                        <div class="bg-light rounded-xl p-8 shadow-lg hover-lift">
+                            <div class="flex items-center mb-6">
+                                <img src="https://picsum.photos/id/64/100/100" alt="客户头像"
+                                    class="w-16 h-16 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-bold text-lg">张女士</h4>
+                                    <p class="text-gray-500 text-sm">婚纱摄影客户</p>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="flex text-yellow-400">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 italic">
+                                "开心影屋的婚纱摄影服务太棒了！摄影师非常专业，很会引导我们摆姿势，照片效果超出预期。整个拍摄过程非常愉快，强烈推荐给准备结婚的朋友们！"</p>
+                        </div>
+                    </div>
+
+                    <!-- 评价 2 -->
+                    <div class="testimonial-item min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-4">
+                        <div class="bg-light rounded-xl p-8 shadow-lg hover-lift">
+                            <div class="flex items-center mb-6">
+                                <img src="https://picsum.photos/id/91/100/100" alt="客户头像"
+                                    class="w-16 h-16 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-bold text-lg">李先生</h4>
+                                    <p class="text-gray-500 text-sm">家庭摄影客户</p>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="flex text-yellow-400">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half-o"></i>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 italic">
+                                "我们一家四口在开心影屋拍摄了全家福，效果非常好！摄影师很有耐心，特别是对我们家的两个小孩，引导得很到位。照片质量很高，我们非常满意！"</p>
+                        </div>
+                    </div>
+
+                    <!-- 评价 3 -->
+                    <div class="testimonial-item min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-4">
+                        <div class="bg-light rounded-xl p-8 shadow-lg hover-lift">
+                            <div class="flex items-center mb-6">
+                                <img src="https://picsum.photos/id/26/100/100" alt="客户头像"
+                                    class="w-16 h-16 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-bold text-lg">王女士</h4>
+                                    <p class="text-gray-500 text-sm">儿童摄影客户</p>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="flex text-yellow-400">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 italic">
+                                "为我女儿的三岁生日在开心影屋拍了一套照片，效果太棒了！摄影师和引导师都非常专业，很会逗孩子开心，照片里的女儿笑得特别灿烂。服务也很周到，强烈推荐！"</p>
+                        </div>
+                    </div>
+
+                    <!-- 评价 4 -->
+                    <div class="testimonial-item min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-4">
+                        <div class="bg-light rounded-xl p-8 shadow-lg hover-lift">
+                            <div class="flex items-center mb-6">
+                                <img src="https://picsum.photos/id/22/100/100" alt="客户头像"
+                                    class="w-16 h-16 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-bold text-lg">陈先生</h4>
+                                    <p class="text-gray-500 text-sm">商业摄影客户</p>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="flex text-yellow-400">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 italic">
+                                "开心影屋为我们公司拍摄了产品照片和企业形象照，效果非常专业。摄影师对光线和构图的把握很到位，照片质量很高，超出了我们的预期。合作非常愉快！"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 控制按钮 -->
+                <div class="flex justify-center mt-10 space-x-4">
+                    <button
+                        class="testimonial-prev bg-primary/10 hover:bg-primary/20 text-primary w-12 h-12 rounded-full flex items-center justify-center transition-all">
+                        <i class="fa fa-angle-left text-xl"></i>
+                    </button>
+                    <button
+                        class="testimonial-next bg-primary/10 hover:bg-primary/20 text-primary w-12 h-12 rounded-full flex items-center justify-center transition-all">
+                        <i class="fa fa-angle-right text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 预约拍摄 -->
+    <section id="booking" class="py-20 bg-primary relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0 bg-[url('https://picsum.photos/id/301/1920/1080')] bg-cover bg-center"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(2rem,5vw,3rem)] font-bold text-white mb-4">预约拍摄</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto mb-8"></div>
+                <p class="text-white/80 max-w-3xl mx-auto">填写以下表单预约您的拍摄服务，我们的客服将尽快与您联系确认详情。</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-6">为什么选择开心影屋？</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-white/20 p-3 rounded-full text-white mt-1">
+                                <i class="fa fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-white mb-2">专业团队</h4>
+                                <p class="text-white/80">我们拥有经验丰富的摄影师、化妆师和后期制作团队，为您提供全方位的专业服务。</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-white/20 p-3 rounded-full text-white mt-1">
+                                <i class="fa fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-white mb-2">优质服务</h4>
+                                <p class="text-white/80">从预约咨询到成品交付，我们全程提供贴心服务，确保您的拍摄体验愉快无忧。</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-white/20 p-3 rounded-full text-white mt-1">
+                                <i class="fa fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-white mb-2">高品质作品</h4>
+                                <p class="text-white/80">我们使用专业摄影设备和后期制作技术，确保每一张照片都具有卓越的品质。</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-white/20 p-3 rounded-full text-white mt-1">
+                                <i class="fa fa-check-circle text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-white mb-2">灵活定制</h4>
+                                <p class="text-white/80">我们提供多种拍摄套餐，并可根据您的需求进行个性化定制，满足您的特殊要求。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10">
+                        <p class="text-white/80 mb-4">有任何疑问？请随时联系我们：</p>
+                        <div class="flex items-center space-x-4">
+                            <a href="tel:+86123456789"
+                                class="flex items-center text-white hover:text-accent transition-colors">
+                                <i class="fa fa-phone text-xl mr-2"></i>
+                                <span>+86 123 4567 89</span>
+                            </a>
+                            <a href="mailto:info@kaixinyingwu.com"
+                                class="flex items-center text-white hover:text-accent transition-colors">
+                                <i class="fa fa-envelope text-xl mr-2"></i>
+                                <span>info@kaixinyingwu.com</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <form class="bg-white rounded-xl shadow-xl p-8">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="name" class="block text-gray-700 mb-2">您的姓名</label>
+                                <input type="text" id="name" name="name"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                                    placeholder="请输入您的姓名" required>
+                            </div>
+
+                            <div>
+                                <label for="phone" class="block text-gray-700 mb-2">联系电话</label>
+                                <input type="tel" id="phone" name="phone"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                                    placeholder="请输入您的联系电话" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-700 mb-2">电子邮箱</label>
+                            <input type="email" id="email" name="email"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                                placeholder="请输入您的电子邮箱" required>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="service" class="block text-gray-700 mb-2">拍摄类型</label>
+                                <select id="service" name="service"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                                    required>
+                                    <option value="" selected disabled>请选择拍摄类型</option>
+                                    <option value="wedding">婚纱摄影</option>
+                                    <option value="children">儿童摄影</option>
+                                    <option value="family">家庭摄影</option>
+                                    <option value="portrait">个人写真</option>
+                                    <option value="commercial">商业摄影</option>
+                                    <option value="event">活动摄影</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="date" class="block text-gray-700 mb-2">预计拍摄日期</label>
+                                <input type="date" id="date" name="date"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 mb-2">备注信息</label>
+                            <textarea id="message" name="message" rows="4"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                                placeholder="请输入您的特殊需求或疑问"></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-primary hover:bg-dark text-white font-medium py-3 px-4 rounded-lg transition-all hover-lift">
+                            提交预约 <i class="fa fa-paper-plane ml-2"></i>
+                        </button>
+
+                        <p class="text-gray-500 text-sm mt-4 text-center">我们会在24小时内与您联系确认预约详情</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(2rem,5vw,3rem)] font-bold text-primary mb-4">联系我们</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto mb-8"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">无论您有任何疑问或需求，都可以通过以下方式联系我们，我们将竭诚为您服务。</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- 联系信息 1 -->
+                <div class="bg-light rounded-xl p-8 text-center hover-lift">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fa fa-map-marker text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">地址</h3>
+                    <p class="text-gray-600">北京市朝阳区建国路88号<br>现代城A座15层</p>
+                </div>
+
+                <!-- 联系信息 2 -->
+                <div class="bg-light rounded-xl p-8 text-center hover-lift">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fa fa-phone text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">电话</h3>
+                    <p class="text-gray-600">+86 123 4567 89<br>+86 987 6543 21</p>
+                </div>
+
+                <!-- 联系信息 3 -->
+                <div class="bg-light rounded-xl p-8 text-center hover-lift">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fa fa-envelope text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">邮箱</h3>
+                    <p class="text-gray-600">info@kaixinyingwu.com<br>service@kaixinyingwu.com</p>
+                </div>
+            </div>
+
+            <!-- 营业时间 -->
+            <div class="mt-16 bg-light rounded-xl p-8 max-w-3xl mx-auto">
+                <h3 class="text-2xl font-bold text-center mb-8">营业时间</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700">周一至周五</span>
+                        <span class="text-gray-600">9:00 - 20:00</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700">周六</span>
+                        <span class="text-gray-600">9:00 - 18:00</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700">周日</span>
+                        <span class="text-gray-600">10:00 - 17:00</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-700">法定节假日</span>
+                        <span class="text-gray-600">10:00 - 16:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 地图 -->
+            <div class="mt-12 rounded-xl overflow-hidden shadow-lg">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3053.923607313003!2d116.46623451523733!3d39.91066234541406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35f1ad1df7e0174b%3A0x3230d5111a1d603!2sChina%20World%20Tower!5e0!3m2!1sen!2sus!4v1633054173022!5m2!1sen!2sus"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- 关于我们 -->
+                <div>
+                    <h3 class="font-logo text-2xl mb-6">开心影屋</h3>
+                    <p class="text-gray-400 mb-6">专业摄影服务提供商，用心记录您生命中的每一个精彩瞬间。</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-youtube-play text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 快速链接 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">快速链接</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">关于我们</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">服务项目</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-white transition-colors">作品展示</a></li>
+                        <li><a href="#pricing" class="text-gray-400 hover:text-white transition-colors">价格套餐</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors">客户评价</a>
+                        </li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+                    </ul>
+                </div>
+
+                <!-- 服务项目 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">服务项目</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">婚纱摄影</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">儿童摄影</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">家庭摄影</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">个人写真</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">商业摄影</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">活动摄影</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">产品摄影</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 版权信息 -->
+        <div class="bg-dark py-6 text-center text-white/80">
+            <div class="container mx-auto px-4">
+                <p class="mb-2">© 2023 开心影屋. 保留所有权利.</p>
+                <p class="text-sm">地址: 北京市朝阳区建国路88号 | 电话: 010-12345678 | 邮箱: contact@kaixinyingwu.com</p>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 轮播图功能
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.opacity = i === index ? '1' : '0';
+            });
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        
+        // 自动轮播
+        setInterval(nextSlide, 5000);
+
+        // 画廊筛选功能
+        const filterButtons = document.querySelectorAll('.gallery-filter');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // 移除所有按钮的active类
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // 为当前按钮添加active类
+                this.classList.add('active');
+                
+                const category = this.getAttribute('data-category');
+                
+                galleryItems.forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

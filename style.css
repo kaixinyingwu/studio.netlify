@@ -1,0 +1,146 @@
+/* 自定义配置 */
+:root {
+    --primary: #2E7D32; /* 深绿色 - 主色调 */
+    --secondary: #66BB6A; /* 中绿色 - 辅助色 */
+    --accent: #A5D6A7; /* 浅绿色 - 强调色 */
+    --dark: #1B5E20; /* 暗绿色 - 文字 */
+    --light: #E8F5E9; /* 极浅绿色 - 背景 */
+}
+
+/* 导入华文彩云字体 */
+@font-face {
+    font-family: '华文彩云';
+    src: url('https://cdn.jsdelivr.net/npm/chinese-fonts@1.0.0/fonts/STCaiyun.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 基础样式 */
+body {
+    font-family: 'Noto Sans SC', sans-serif;
+    color: #333;
+    background-color: var(--light);
+}
+
+/* 平滑滚动 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 自定义工具类 */
+.content-auto {
+    content-visibility: auto;
+}
+
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* 动画定义 */
+.fade-in {
+    animation: fadeIn 0.8s ease-in-out forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scale-up {
+    transition: transform 0.3s ease;
+}
+
+.scale-up:hover {
+    transform: scale(1.05);
+}
+
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* 导航栏滚动效果 */
+.navbar-scrolled {
+    background-color: rgba(46, 125, 50, 0.95);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* 图片悬停效果 */
+.img-hover-zoom {
+    overflow: hidden;
+}
+
+.img-hover-zoom img {
+    transition: transform 0.5s ease;
+}
+
+.img-hover-zoom:hover img {
+    transform: scale(1.1);
+}
+
+/* 字体样式 */
+.font-logo {
+    font-family: '华文彩云', cursive, sans-serif;
+}
+
+/* 按钮样式 */
+.btn {
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 画廊样式 */
+.gallery-filter {
+    cursor: pointer;
+}
+
+.gallery-filter.active {
+    background-color: var(--primary);
+    color: white;
+}
+
+.gallery-item {
+    transition: all 0.3s ease;
+}
+
+/* 轮播图样式 */
+.carousel-item {
+    transition: opacity 1s ease;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
